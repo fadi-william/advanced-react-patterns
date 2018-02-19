@@ -1,0 +1,12 @@
+.Header {
+    display: flex;
+
+    .Left-nav {
+        flex: 1 1 auto;
+    }
+
+    span {
+        display: block;
+        padding-bottom: 5px;
+    }
+}
