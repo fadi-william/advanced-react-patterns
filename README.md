@@ -4,7 +4,7 @@ This project contains the implementation of the advanced react patterns presente
 
 The examples were implemented using TypeScript. You will find some minor differences between the implemented stories and the original examples presented in the course as I was exploring the concepts.
 
-The best way to navigate this project is to start ny `stories/index.tsx` and trace the components and the imports of each story.
+The best way to navigate this project is to start by `stories/index.tsx` and trace the components and the imports of each story.
 
 It is worth mentioning that it wasn't necessary to use PostCSS and Sass. However, this is how I usually write my style-sheets.
  
