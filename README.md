@@ -1,5 +1,7 @@
 # React - Advanced Patterns
 
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
 This project contains the implementation of the advanced react patterns presented by Kent C. Dodds in his course on https://egghead.io/courses/advanced-react-component-patterns.
 
 The examples were implemented using TypeScript. You will find some minor differences between the implemented stories and the original examples presented in the course as I was exploring the concepts.
@@ -7,20 +9,20 @@ The examples were implemented using TypeScript. You will find some minor differe
 The best way to navigate this project is to start by `stories/index.tsx` and trace the components and the imports of each story.
 
 It is worth mentioning that it wasn't necessary to use PostCSS and Sass. However, this is how I usually write my style-sheets.
- 
+
 ## The project supports the following technologies :
 
-- [TypeScript](http://es6-features.org/)
-- [React](http://facebook.github.io/react/)
-- [PostCSS](http://postcss.org/)
-- [Sass](http://sass-lang.com/)
+* [TypeScript](http://es6-features.org/)
+* [React](http://facebook.github.io/react/)
+* [PostCSS](http://postcss.org/)
+* [Sass](http://sass-lang.com/)
 
 ## Development
 
-1. Install NodeJS using [brew](http://brew.sh/) on a Mac or from [the official website](https://nodejs.org/) and setup your environment.
-2. Run `brew install yarn` to install yarn.
-3. Run `yarn install` from the project's root directory to install the dependencies.
-4. Run `yarn start` and start experimenting with your project.
+1.  Install NodeJS using [brew](http://brew.sh/) on a Mac or from [the official website](https://nodejs.org/) and setup your environment.
+2.  Run `brew install yarn` to install yarn.
+3.  Run `yarn install` from the project's root directory to install the dependencies.
+4.  Run `yarn start` and start experimenting with your project.
 
 ## License
 

@@ -10,27 +10,28 @@ import { toggleProviderContextName } from "./ToggleProviderConstants";
 
 // The component's props interface.
 interface IToggleProviderRendererProps {
-    togglerProps: ITogglerProps;
-    children: React.ReactNode;
+  togglerProps: ITogglerProps;
+  children: React.ReactNode;
 }
 
-class ToggleProviderRenderer extends React.Component<IToggleProviderRendererProps> {
+class ToggleProviderRenderer extends React.Component<
+  IToggleProviderRendererProps
+> {
+  public static contextName = toggleProviderContextName;
 
-    public static contextName = toggleProviderContextName;
+  public static childContextTypes = {
+    [ToggleProviderRenderer.contextName]: PropTypes.object.isRequired
+  };
 
-    public static childContextTypes = {
-        [ToggleProviderRenderer.contextName]: PropTypes.object.isRequired,
+  public getChildContext() {
+    return {
+      [ToggleProviderRenderer.contextName]: this.props.togglerProps
     };
+  }
 
-    public getChildContext() {
-        return {
-            [ToggleProviderRenderer.contextName]: this.props.togglerProps,
-        };
-    }
-
-    public render() {
-        return this.props.children;
-    }
+  public render() {
+    return this.props.children;
+  }
 }
 
 export default ToggleProviderRenderer;

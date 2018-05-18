@@ -1,12 +1,14 @@
 {
   "name": "advanced-react-patterns",
   "version": "1.0.0",
-  "description": "This project contains the implementation of advanced react patterns as presented by Kent C. Dodds in his course on https://egghead.io/courses/advanced-react-component-patterns.",
+  "description":
+    "This project contains the implementation of advanced react patterns as presented by Kent C. Dodds in his course on https://egghead.io/courses/advanced-react-component-patterns.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "start-storybook -p 9001 -s ./static -c .storybook",
-    "build": "build-storybook -c .storybook -o build"
+    "start": "start-storybook -p 9001",
+    "build": "build-storybook -c .storybook -o build",
+    "precommit": "pretty-quick --staged"
   },
   "author": "Fadi ABDELMESSIH",
   "license": "SEE LICENSE IN <README.md>",
@@ -22,6 +24,7 @@
     "css-loader": "^0.28.7",
     "cssnano": "^3.10.0",
     "file-loader": "^1.1.5",
+    "husky": "0.14.3",
     "ignore-loader": "^0.1.2",
     "import": "0.0.6",
     "node-sass": "^4.5.1",
@@ -32,10 +35,10 @@
     "postcss-flexbugs-fixes": "^3.2.0",
     "postcss-font-magician": "^2.1.0",
     "postcss-loader": "^2.0.8",
+    "prettier": "1.12.1",
+    "pretty-quick": "1.4.1",
     "sass-loader": "^6.0.6",
     "style-loader": "0.20.2",
-    "tslint": "^5.8.0",
-    "tslint-react": "^3.2.0",
     "url-loader": "^0.6.2"
   },
   "dependencies": {

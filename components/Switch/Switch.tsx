@@ -5,27 +5,26 @@ import "./Switch.scss";
 
 // The props interface.
 interface ISwitchProps {
-    on: boolean;
-    toggle: (event) => void;
+  on: boolean;
+  toggle: (event) => void;
 }
 
 class Switch extends React.Component<ISwitchProps, {}> {
+  private static defaultProps = {
+    on: false,
+    toggle: () => {}
+  };
 
-    private static defaultProps = {
-        on: false,
-        toggle: () => {},
-    };
+  public render() {
+    const { on, toggle } = this.props;
 
-    public render() {
-        const { on, toggle } = this.props;
-
-        return (
-            <label className="switch">
-              <input type="checkbox" checked={on} onChange={toggle} />
-              <span className="slider round" />
-            </label>
-        );
-    }
+    return (
+      <label className="switch">
+        <input type="checkbox" checked={on} onChange={toggle} />
+        <span className="slider round" />
+      </label>
+    );
+  }
 }
 
 export default Switch;

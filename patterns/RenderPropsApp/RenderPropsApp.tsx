@@ -10,26 +10,23 @@ import ToggleButton from "../../components/ToggleButton/ToggleButton";
 import Switch from "../../components/Switch/Switch";
 
 const render = ({ togglerProps }) => {
-    return (
-        <div>
-            <Switch on={togglerProps.on} toggle={togglerProps.toggle} />
-            <hr/>
-            <ToggleButton {...togglerProps} />
-        </div>
-    );
+  return (
+    <div>
+      <Switch on={togglerProps.on} toggle={togglerProps.toggle} />
+      <hr />
+      <ToggleButton {...togglerProps} />
+    </div>
+  );
 };
 
 class RenderPropsApp extends React.Component {
+  onToggle = (toggleStatus: boolean) => {
+    console.log(`The 'Advanced' toggle status is ${toggleStatus}`);
+  };
 
-    onToggle = (toggleStatus: boolean) => {
-        console.log(`The 'Advanced' toggle status is ${toggleStatus}`);
-    }
-
-    public render() {
-        return (
-            <AdvancedToggle onToggle={this.onToggle} render={render} />
-        );
-    }
+  public render() {
+    return <AdvancedToggle onToggle={this.onToggle} render={render} />;
+  }
 }
 
 export default RenderPropsApp;

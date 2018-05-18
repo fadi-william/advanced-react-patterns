@@ -10,51 +10,45 @@ import { ITogglerProps } from "../../AdvancedToggleControlled/AdvancedToggleCont
 import { withToggle } from "../Providers/ToggleProviderWithBroadcast";
 
 class Article extends React.Component {
+  public render() {
+    const currentArticleEmojiDisabled = (
+      <div>
+        <h1>Hey You!</h1>
+        <p>
+          Hey you, out there in the cold<br />
+          Getting lonely, getting old<br />
+          Can you feel me?<br />
+          Hey you, standing in the aisles<br />
+        </p>
+      </div>
+    );
 
-    public render() {
+    const currentArticleEmojiEnabled = (
+      <div>
+        <h1>😀</h1>
+        <p>🎸🎸🎸🎸🎸🎸</p>
+      </div>
+    );
 
-        const currentArticleEmojiDisabled = (
-            <div>
-                <h1>Hey You!</h1>
-                <p>Hey you, out there in the cold<br />
-                Getting lonely, getting old<br />
-                Can you feel me?<br />
-                Hey you, standing in the aisles<br />
-                </p>
-            </div>
-        );
+    // TODO : Properly type the components.
+    const ArticleRenderer: React.StatelessComponent<ITogglerProps> = (
+      props: ITogglerProps
+    ) => {
+      let articleToRender = currentArticleEmojiDisabled;
 
-        const currentArticleEmojiEnabled = (
-                <div>
-                    <h1>😀</h1>
-                    <p>🎸🎸🎸🎸🎸🎸</p>
-                </div>
-            );
+      if (props.on) {
+        articleToRender = currentArticleEmojiEnabled;
+      }
 
-        // TODO : Properly type the components.
-        const ArticleRenderer: React.StatelessComponent<ITogglerProps> = (props: ITogglerProps) => {
+      return <div className="Article">{articleToRender}</div>;
+    };
 
-            let articleToRender = currentArticleEmojiDisabled;
+    ArticleRenderer.displayName = ArticleRenderer.name;
 
-            if (props.on) {
-                articleToRender = currentArticleEmojiEnabled;
-            }
+    const RenderComponent = withToggle(ArticleRenderer);
 
-            return (
-                <div className="Article">
-                    {articleToRender}
-                </div>
-            );
-        };
-
-        ArticleRenderer.displayName = ArticleRenderer.name;
-
-        const RenderComponent = withToggle(ArticleRenderer);
-
-        return (
-            <RenderComponent />
-        );
-    }
+    return <RenderComponent />;
+  }
 }
 
 export default Article;

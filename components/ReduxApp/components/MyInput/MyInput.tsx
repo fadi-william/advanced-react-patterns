@@ -14,49 +14,48 @@ import { ConnectedToggle } from "../../providers/ToggleProvider";
 import "./MyInput.scss";
 
 interface IMyInputProps {
-    on: boolean;
-    toggle: (event) => void;
+  on: boolean;
+  toggle: (event) => void;
 }
 
 class MyInput extends React.Component {
+  private input: HTMLInputElement;
+  private unsubscribe: Unsubscribe;
 
-    private input: HTMLInputElement;
-    private unsubscribe: Unsubscribe;
-
-    onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        // We will implement it soon.
-        if (event.target.value === "false") {
-            store.dispatch(Actions.toggleState(false));
-        }
-
-        if (event.target.value === "true") {
-            store.dispatch(Actions.toggleState(true));
-        }
+  onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    // We will implement it soon.
+    if (event.target.value === "false") {
+      store.dispatch(Actions.toggleState(false));
     }
 
-    public componentDidMount() {
-        this.input.value = store.getState().toggle.isToggleChecked;
-        this.unsubscribe = store.subscribe(() => {
-            this.input.value = store.getState().toggle.isToggleChecked;
-        });
+    if (event.target.value === "true") {
+      store.dispatch(Actions.toggleState(true));
     }
+  };
 
-    public componentWillUnmount() {
-        this.unsubscribe();
-    }
+  public componentDidMount() {
+    this.input.value = store.getState().toggle.isToggleChecked;
+    this.unsubscribe = store.subscribe(() => {
+      this.input.value = store.getState().toggle.isToggleChecked;
+    });
+  }
 
-    public render() {
-        const renderComponent = (props: IMyInputProps) => (
-            <input
-                ref={(input) => this.input = input}
-                placeholder="Enter the current state"
-                className="My-input"
-                onChange={this.onInputChange}
-            />
-        );
+  public componentWillUnmount() {
+    this.unsubscribe();
+  }
 
-        return (<ConnectedToggle render={renderComponent} />);
-    }
+  public render() {
+    const renderComponent = (props: IMyInputProps) => (
+      <input
+        ref={input => (this.input = input)}
+        placeholder="Enter the current state"
+        className="My-input"
+        onChange={this.onInputChange}
+      />
+    );
+
+    return <ConnectedToggle render={renderComponent} />;
+  }
 }
 
 export default MyInput;

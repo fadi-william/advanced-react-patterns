@@ -8,18 +8,17 @@ import ToggleProvider from "../../components/ReduxApp/providers/ToggleProvider";
 import UpdateBlocker from "../../components/UpdateBlocker/UpdateBlocker";
 
 class ReduxApp extends React.Component {
-
-    public render() {
-        return (
-            <ToggleProvider defaultOn={true}>
-                <UpdateBlocker>
-                    <MyInput />
-                    <Switch />
-                    <StatePrinter />
-                </UpdateBlocker>
-            </ToggleProvider>
-        );
-    }
+  public render() {
+    return (
+      <ToggleProvider defaultOn={true}>
+        <UpdateBlocker>
+          <MyInput />
+          <Switch />
+          <StatePrinter />
+        </UpdateBlocker>
+      </ToggleProvider>
+    );
+  }
 }
 
 export default ReduxApp;
